@@ -84,6 +84,22 @@ document.getElementById("eventForm").addEventListener("submit", (e) => {
     const eventDate = document.getElementById("eventDate").value;
     const eventDescription = document.getElementById("eventDescription").value;
     const eventEmails = document.getElementById("eventEmails").value;
+
+    if(
+        !(
+            eventName &&
+            eventDate &&
+            eventDescription &&
+            eventEmails
+        )
+    ){
+        toastr.error("Please Fill All Input Filed", "Missing");
+        eventFormReset();
+        document.getElementById("eventForm").reset();
+        window.location.href = "#";
+        return;
+    }
+
     let   newId = { id: generateEventId() };
 
     if(document.getElementById("eventID")){
@@ -115,6 +131,7 @@ document.getElementById("eventForm").addEventListener("submit", (e) => {
             ...newEvent,
             offline: true,
         };
+        if(newEvent.description && newEvent.emails)
         events.push(newEvent);
         saveEvents(events);
         renderEvents();
@@ -162,6 +179,7 @@ document.getElementById("eventImportForm").addEventListener("submit", (e) => {
                         ...newEvent,
                         offline: true,
                     };
+                    if(newEvent.description && newEvent.emails)
                     events.push(newEvent);
                     saveEvents(events);
                     renderEvents();
@@ -259,6 +277,10 @@ setInterval(()=>{
         // for chrome
         document.getElementById("onlineButton").style.display = "block"
         document.getElementById("offlineButton").style.display = "none"
+
+        // const events = loadEvents();
+        // const offlineEvents = events.filter(event => event.offline === true);
+        // offlineEvents.forEach((event)=> saveOnServer(event) );
     }else{
         document.getElementById("onlineButton").classList.add('hidden');
         document.getElementById("offlineButton").classList.remove('hidden');
