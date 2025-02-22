@@ -255,6 +255,9 @@ setInterval(()=>{
     if(isOnline()){
         document.getElementById("onlineButton").classList.remove('hidden');
         document.getElementById("offlineButton").classList.add('hidden');
+        // for chrome
+        document.getElementById("onlineButton").style.display = "block"
+        document.getElementById("offlineButton").style.display = "none"
 
         const events = loadEvents();
         const offlineEvents = events.filter(event => event.offline === true);
@@ -262,16 +265,21 @@ setInterval(()=>{
     }else{
         document.getElementById("onlineButton").classList.add('hidden');
         document.getElementById("offlineButton").classList.remove('hidden');
+        // for chrome
+        document.getElementById("onlineButton").style.display = "none"
+        document.getElementById("offlineButton").style.display = "block"
     }
-},2000)
+},500)
 
-// window.addEventListener('online', ()=> {
-//     document.getElementById("onlineButton").classList.remove('hidden');
-//     document.getElementById("offlineButton").classList.add('hidden');
-// });
-// window.addEventListener('offline', ()=> {
-//     document.getElementById("onlineButton").classList.add('hidden');
-//     document.getElementById("offlineButton").classList.remove('hidden');
-// });
+window.addEventListener('online', ()=> {
+    document.getElementById("onlineButton").classList.remove('hidden');
+    document.getElementById("offlineButton").classList.add('hidden');
+    
+});
+window.addEventListener('offline', ()=> {
+    document.getElementById("onlineButton").classList.add('hidden');
+    document.getElementById("offlineButton").classList.remove('hidden');
+    
+});
 
 </script>

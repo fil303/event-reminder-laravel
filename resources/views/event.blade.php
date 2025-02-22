@@ -16,8 +16,8 @@
         <div class="flex justify-between">
             <h1 class="text-3xl font-bold mb-8">Event Reminder</h1>
             <div>
-                <button id="onlineButton" class="hidden btn btn-success">Online</button>
-                <button id="offlineButton" class="hidden btn btn-error">Offline</button>
+                <button id="onlineButton"  style="display: none" class="hidden btn btn-success">Online</button>
+                <button id="offlineButton" style="display: none"  class="hidden btn btn-error">Offline</button>
             </div>
         </div>
 
