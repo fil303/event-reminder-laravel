@@ -259,10 +259,6 @@ setInterval(()=>{
         // for chrome
         document.getElementById("onlineButton").style.display = "block"
         document.getElementById("offlineButton").style.display = "none"
-
-        const events = loadEvents();
-        const offlineEvents = events.filter(event => event.offline === true);
-        offlineEvents.forEach((event)=> saveOnServer(event) );
     }else{
         document.getElementById("onlineButton").classList.add('hidden');
         document.getElementById("offlineButton").classList.remove('hidden');
@@ -275,7 +271,10 @@ setInterval(()=>{
 window.addEventListener('online', ()=> {
     document.getElementById("onlineButton").classList.remove('hidden');
     document.getElementById("offlineButton").classList.add('hidden');
-    
+
+    const events = loadEvents();
+    const offlineEvents = events.filter(event => event.offline === true);
+    offlineEvents.forEach((event)=> saveOnServer(event) );
 });
 window.addEventListener('offline', ()=> {
     document.getElementById("onlineButton").classList.add('hidden');
