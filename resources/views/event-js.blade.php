@@ -157,6 +157,7 @@ document.getElementById("eventImportForm").addEventListener("submit", (e) => {
                 if(isOnline()){
                     saveOnServer(newEvent, false);
                 }else{
+                    let events = loadEvents();
                     newEvent = {
                         ...newEvent,
                         offline: true,
