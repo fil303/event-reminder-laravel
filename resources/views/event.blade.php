@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Reminder App</title>
-    <link href="{{ asset("assets/daisyui/full.min.css") }}" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset("assets/tailwind/tailwind.min.css") }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset("assets/datatable/dataTables.dataTables.css") }}" />
     <link rel="stylesheet" href="{{ asset("assets/toastr/toastr.min.css") }}" />
