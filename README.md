@@ -10,5 +10,5 @@ Simple Event Reminder App built on Laravel 11
 5 : Run server on local machine - php artisan serve
 6 : Run scheduler by this command - php artisan schedule:work
 
-Tested on Firfox Browser.
+Tested on Chrome Browser.
 A CSV file given in public/events.csv for import data.
